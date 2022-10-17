@@ -13,7 +13,11 @@ const Header = (): JSX.Element => {
     <>
       <HeaderWrapper>
         <MainContainer>
-          <HeaderInner>Header</HeaderInner>
+          <HeaderInner>
+            <Link href="/">
+              <a href="/">Header</a>
+            </Link>
+          </HeaderInner>
           <button onClick={() => setOpenModal(true)}>open modal</button>
         </MainContainer>
       </HeaderWrapper>

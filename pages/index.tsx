@@ -1,12 +1,18 @@
 import MainContainer from "components/containers/MainContainer";
-import { MainSlider } from "components/templates/MainSlider";
 import { withLayout } from "layout/Layout";
+import Link from "next/link";
 
 function Home(): JSX.Element {
   return (
     <Main>
       <MainContainer>
-        <MainSlider />
+        <Link href="/imageSlider">
+          <a href="/imageSlider">ImageSlider</a>
+        </Link>
+        <br />
+        <Link href="/uploadImages">
+          <a href="/uploadImages">UploadImages</a>
+        </Link>
       </MainContainer>
     </Main>
   );

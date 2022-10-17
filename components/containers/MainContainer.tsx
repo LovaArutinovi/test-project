@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 const MainContainer = styled.div`
-  width: 100%;
-  max-width: 1330px;
-  margin: 0 auto;
-  padding: 0 30px;
+  width: min(1330px, 100% - 60px);
+  margin-inline: auto;
 `;
 export default MainContainer;
