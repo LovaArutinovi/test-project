@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import styled from "styled-components";
 import { getBase64 } from "untils/getBase64";
+import { slides } from "untils/slides";
+import GridLayout from "react-grid-layout";
 
 interface uploadedFile {
   id: number;
@@ -42,11 +44,34 @@ function UploadImages(): JSX.Element {
           </div>
           <aside>
             <h4>Files</h4>
-            <ul>
+            <UploadedItems
+              className="layout"
+              cols={4}
+              rowHeight={250}
+              width={1000}
+            >
               {uploadedImages.map((file: uploadedFile, index) => {
-                return <img key={file.id + index} src={file.value} />;
+                return (
+                  <UploadedItem key={file.id + index}>
+                    <img src={file.value} />
+                  </UploadedItem>
+                );
               })}
-            </ul>
+              {/* {slides.map((file, index) => (
+                <UploadedItem key={index}>
+                  <img src={file} />
+                </UploadedItem>
+              ))} */}
+            </UploadedItems>
+            {/* <UploadedItems>
+              {uploadedImages.map((file: uploadedFile, index) => {
+                return (
+                  <UploadedItem>
+                    <img key={file.id + index} src={file.value} /> 
+                  </UploadedItem>
+                );
+              })}
+            </UploadedItems> */}
           </aside>
         </section>
       </MainContainer>
@@ -57,3 +82,22 @@ function UploadImages(): JSX.Element {
 export default withLayout(UploadImages);
 
 const UploadImagesWrapper = styled.section``;
+const UploadedItems = styled(GridLayout)`
+  margin: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+`;
+
+const UploadedItem = styled.div`
+  width: 100%;
+  border: 1px solid #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+`;

@@ -4,7 +4,7 @@ html,
 body {
   font-family: 'Poppins';
   font-weight: 600;
-  background: #FEE395;
+  /* background: #FEE395; */
   color: #000000;
   min-height: 100vh;
   -ms-overflow-style: none;
